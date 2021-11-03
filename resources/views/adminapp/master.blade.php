@@ -52,7 +52,11 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  @yield('content')
+  <section class="content">
+    <div class="container-fluid">
+      @yield('content')
+    </div>
+  </section>
   <!-- /.content-wrapper -->
   @include('adminapp.footer')
   <!-- Control Sidebar -->

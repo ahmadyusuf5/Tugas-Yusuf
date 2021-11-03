@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', function () {
-    return view('admindashboard');
-});
+// Route::get('dashboard', function () {
+//     return view('admindashboard');
+// });
 
 Route::get('table', function () {
     return view('table');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+->name('dashboard');
+
+
+Route::get('/produk', [ProdukController::class, 'index'])
+->name('dataProduk');
+
+Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy'])->name('produkDelete');
