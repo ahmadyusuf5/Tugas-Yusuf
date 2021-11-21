@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\DeleteeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +38,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 Route::get('/produk', [ProdukController::class, 'index'])
 ->name('dataProduk');
 
-Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy'])->name('produkDelete');
+Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy'])
+->name('produkDelete');
+
+Route::get('customer', [DeleteController::class, 'index'])->name('getCustomers');
+Route::get('/customer/delete/{id}', [DeleteController::class, 'destroy'])->name('customerDelete');
+
+Route::get('categories', [DeleteeController::class, 'index'])->name('getCategories');
+Route::get('/categories/delete/{id}', [DeleteeController::class, 'destroy'])->name('categoriesDelete');
